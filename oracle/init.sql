@@ -1,0 +1,3 @@
+CREATE USER springBootUser IDENTIFIED BY springPassword;
+GRANT CONNECT, RESOURCE TO springBootUser;
+ALTER USER springBootUser QUOTA UNLIMITED ON USERS;
