@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet author="sokkun" id="20220418105800_status_table_add_column">
+        <createSequence sequenceName="SEQ_STATUS" startValue="10" incrementBy="10"/>
+        <addColumn tableName="status">
+            <column name="id" type="NUMBER(19)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_status"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>
