@@ -17,5 +17,19 @@ class StatusService(
         val createdStatus = statusRepo.save(status)
         return StatusRes(createdStatus.id, createdStatus. name)
     }
-
+    override fun updateStatus(id: Long, status: StatusReq): StatusRes? {
+        if (statusRepo.existsById(id)) {
+            val status = Status(id, status.name, status.description)
+            val createdStatus = statusRepo.save(status)
+            return StatusRes(createdStatus.id, createdStatus. name)
+        }
+        return null
+    }
+    override fun deleteStatus(id: Long): String {
+        if (statusRepo.existsById(id)) {
+            val status = statusRepo.deleteById(id)
+            return "The Status id: $id is deleted..."
+        }
+        return "The Status id: $id doesn't exist"
+    }
 }

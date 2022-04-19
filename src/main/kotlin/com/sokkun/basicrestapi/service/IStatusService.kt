@@ -6,4 +6,6 @@ import com.sokkun.basicrestapi.api.response.StatusRes
 interface IStatusService {
     fun findAllStatus(): List<StatusRes>
     fun createStatus(status: StatusReq): StatusRes
+    fun updateStatus(id: Long, status: StatusReq): StatusRes?
+    fun deleteStatus(id: Long): String
 }
