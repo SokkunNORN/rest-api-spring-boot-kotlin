@@ -3,6 +3,7 @@ package com.sokkun.basicrestapi.api.controller
 import com.sokkun.basicrestapi.api.request.StatusReq
 import com.sokkun.basicrestapi.api.response.StatusRes
 import com.sokkun.basicrestapi.service.impl.StatusService
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -26,5 +27,10 @@ class StatusController(val service: StatusService) {
     @PutMapping("/{id}")
     fun updateStatus(@PathVariable("id") id: Long, @RequestBody status: StatusReq): StatusRes? {
         return service.updateStatus(id, status)
+    }
+
+    @DeleteMapping("/{id}")
+    fun deleteStatusById(@PathVariable("id") id: Long): String {
+        return service.deleteStatus(id)
     }
 }

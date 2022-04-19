@@ -25,5 +25,11 @@ class StatusService(
         }
         return null
     }
-
+    override fun deleteStatus(id: Long): String {
+        if (statusRepo.existsById(id)) {
+            val status = statusRepo.deleteById(id)
+            return "The Status id: $id is deleted..."
+        }
+        return "The Status id: $id doesn't exist"
+    }
 }
