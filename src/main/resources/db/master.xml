@@ -6,5 +6,7 @@
 
     <include file="db/changelog/20220411114300_initial_change_log.xml" relativeToChangelogFile="false"/>
     <include file="db/changelog/20220418105800_status_table_add_column.xml" relativeToChangelogFile="false"/>
+    <include file="db/changelog/20220419101800_init_transfer_type_table.xml" relativeToChangelogFile="false"/>
+    <include file="db/changelog/20220419103500_transfer_type_table_add_sequence.xml" relativeToChangelogFile="false"/>
 
 </databaseChangeLog>

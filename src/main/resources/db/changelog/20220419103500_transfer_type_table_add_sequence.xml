@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet author="sokkun" id="20220419103500_transfer_type_table_add_sequence">
+        <createSequence sequenceName="SEQ_TRANSFER_TYPE" startValue="10" incrementBy="10"/>
+    </changeSet>
+
+</databaseChangeLog>
