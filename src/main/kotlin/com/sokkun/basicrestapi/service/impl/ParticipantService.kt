@@ -6,7 +6,6 @@ import com.sokkun.basicrestapi.repository.ParticipantRepository
 import com.sokkun.basicrestapi.service.IParticipantService
 import org.springframework.stereotype.Service
 import java.time.LocalDateTime
-import java.util.*
 
 @Service
 class ParticipantService(
@@ -23,13 +22,18 @@ class ParticipantService(
 
     override fun createParticipant(participantReq: ParticipantReq): Participant {
         val participant = Participant(0, name = participantReq.name, LocalDateTime.now())
-        println(participantRepository.findById(10))
 
         return participantRepository.save(participant)
     }
 
     override fun updateParticipant(id: Long, participantReq: ParticipantReq): Participant? {
-        TODO("Not yet implemented")
+        if (participantRepository.existsById(id)) {
+            val participant = participantRepository.getById(id)
+            val newParticipant = Participant(id = id, name = participantReq.name, createdAt = participant.createdAt)
+
+            return participantRepository.save(newParticipant)
+        }
+        return null
     }
 
     override fun deleteParticipant(id: Long): String {
